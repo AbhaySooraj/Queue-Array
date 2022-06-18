@@ -21,7 +21,7 @@ int isfull()
 
 int isempty()
 {
-	if(front==-1)
+	if(rear==-1)
 	{
 		return 1;
 	}
@@ -52,19 +52,19 @@ void enqueue(int val)
 
 void dequeue()
 {
+	int i;
 	if(isempty())
 	{
-		printf("\n Queue Empty");
+		printf("\n Underflow");
 	}
 	
 	else
 	{
-		front++;
-		if(front>rear)
+		for(i=0;i<rear;i++)
 		{
-			front=-1;
-			rear=-1;
+			queue[i]=queue[i+1];
 		}
+		rear--;
 	}
 }
 
@@ -88,7 +88,7 @@ void main()
 		{
 			case 1:
 			{
-				printf("ENTER ELEMENT :");
+				printf(" ENTER ELEMENT :");
 				scanf("%d",&entry);
 				enqueue(entry);
 				break;
@@ -108,7 +108,7 @@ void main()
 			
 			case 4:
 			{
-				printf("\n Exiting \n");
+				printf("\n EXITING \n");
 				exit(0);
 			}
 			
@@ -119,32 +119,3 @@ void main()
 		}
 	}
 }
-			
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
